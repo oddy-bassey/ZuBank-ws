@@ -8,6 +8,7 @@
     <artifactId>ZuBank-ws</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+    <description>A ZuBank work-space project for a simple bank application</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
