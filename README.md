@@ -25,7 +25,7 @@ Diagrams
 
 Application Images
 -
-![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/dashboard.jpg?raw=true)
-![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/customer.jpg?raw=true)
-![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/account.jpg?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/dashboard.PNG?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/customer.PNG?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/account.PNG?raw=true)
 ![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/trans.PNG?raw=true)
