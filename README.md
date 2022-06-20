@@ -16,3 +16,16 @@ Contained Modules
 * Zubank_gateway (cloud gateway service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/zubank_gateway.svg?style=svg)](https://circleci.com/gh/oddy-bassey/zubank_gateway) https://github.com/oddy-bassey/zubank_gateway
 * Zubank_client (Client application) https://github.com/oddy-bassey/zubank_client
 * Zubank_config_server (configuration sever)
+
+Diagrams
+-
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/sys_arch.PNG?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/erd.PNG?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/acc_arch.PNG?raw=true)
+
+Application Images
+-
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/dashboard.jpg?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/customer.jpg?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/account.jpg?raw=true)
+![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/trans.PNG?raw=true)
