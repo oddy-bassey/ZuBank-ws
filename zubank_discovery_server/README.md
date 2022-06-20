@@ -1,0 +1,1 @@
+[![oddy-bassey](https://circleci.com/gh/oddy-bassey/zubank_discovery_server.svg?style=svg)](https://circleci.com/gh/oddy-bassey/zubank_discovery_server)

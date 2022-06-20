@@ -1,0 +1,23 @@
+server:
+  port: 8085
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: zubankAccount
+  mongodb:
+    embedded:
+      version: 4.0.2
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  application:
+    name: account-command-service
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}

@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.h-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.v-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+nav,
+.main-container {
+  padding: 0 2rem;
+}
+
+.main-container {
+  min-height: 400px;
+}
+
+.table-container {
+  width: 80%;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+/* --- Dashboard Styles --- */
+.statistics {
+  height: fit-content;
+}
+
+.card:hover {
+  box-shadow: -1px 1px 4px 1px rgba(66, 65, 65, 0.14);
+}
+
+/* .card-title {
+  margin-bottom: 1rem;
+} */
+
+.card {
+  position: relative;
+}
+
+.card-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 2rem;
+  color: rgb(66, 65, 65);
+}
+
+.card-btn:hover {
+  color: rgb(28, 97, 247);
+}
+
+.card-text {
+  font-size: 2.5rem;
+  color: rgb(66, 65, 65);
+}
+
+/* Authentication Page */
+
+.auth-pg {
+  min-height: 100vh;
+}
+
+.auth-pg-left {
+  color: white;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 630px;
+    margin: 1.75rem auto;
+  }
+}

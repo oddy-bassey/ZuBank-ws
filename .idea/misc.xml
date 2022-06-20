@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/zuban_kclient" />
+    <file type="web" url="file://$PROJECT_DIR$/zubank_client" />
+    <file type="web" url="file://$PROJECT_DIR$/zubankclient" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/transaction/pom.xml" />
+        <option value="$PROJECT_DIR$/account.query/pom.xml" />
+        <option value="$PROJECT_DIR$/account.common/pom.xml" />
+        <option value="$PROJECT_DIR$/account.cmd/pom.xml" />
+        <option value="$PROJECT_DIR$/cqrs.core/pom.xml" />
+        <option value="$PROJECT_DIR$/crm/pom.xml" />
+        <option value="$PROJECT_DIR$/zubank_discovery_server/pom.xml" />
+        <option value="$PROJECT_DIR$/zubank_config_server/pom.xml" />
+        <option value="$PROJECT_DIR$/zubank_gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/zubank_client/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+</project>

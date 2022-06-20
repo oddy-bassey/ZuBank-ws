@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <title>ZuBank</title>
+  </head>
+  <body>
+
+    <!-- Top Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{#}">
+          ZuBank<i class="bi bi-cash-coin"></i>
+        </a>
+        <ul class="navbar-nav ms-5 me-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/}">
+              Dashboard
+            </a>
+          </li>
+        </ul>
+
+        <div class="">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item me-4">
+              <a class="nav-link active" aria-current="page" th:href="@{/customers}">
+                Customers
+              </a>
+            </li>
+            <li class="nav-item me-4">
+              <a class="nav-link" th:href="@{/accounts}">Accounts</a>
+            </li>
+            <li class="nav-item me-4">
+              <a class="nav-link" th:href="@{/transactions}">Transactions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Top Navigation -->
+
+    <!-- Page Main Container -->
+    <div class="main-container v-center">
+      <h3 class="my-5">Bank Customers</h3>
+
+      <div class="container-fluid d-flex flex-column table-container">
+        <div class="mb-4">
+          <button
+            id="create-customer-btn"
+            class="btn btn-sm btn-primary"
+            type="button"
+            data-bs-Toggle="modal"
+            data-bs-Target="#modal">
+            Add Customer
+          </button>
+        </div>
+
+        <table class="table table-sm table-hover table-bordered">
+          <caption>
+            Total:
+            <span id="total-customers"></span>
+          </caption>
+          <thead class="table-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Gender</th>
+              <th scope="col">D.O.B</th>
+              <th scope="col">Email</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- populate all customers list from server -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- End of Page Main Container -->
+
+    <!-- Popup Modal -->
+    <div
+      id="modal"
+      class="modal fade"
+      aria-labelledby="modalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Popup Modal -->
+
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- SweetAlertJs -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script th:src="@{/js/customers.js}"></script>
+  </body>
+</html>

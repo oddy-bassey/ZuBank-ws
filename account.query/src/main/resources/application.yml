@@ -1,0 +1,34 @@
+server:
+  port: 8086
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  kafka:
+    listener:
+      ack-mode: MANUAL_IMMEDIATE
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: bankaccConsumer
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+  application:
+    name: account-query-service
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}

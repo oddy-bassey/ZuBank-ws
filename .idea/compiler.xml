@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="account.common" />
+        <module name="zubank_config_server" />
+        <module name="account.cmd" />
+        <module name="cqrs.core" />
+        <module name="zubank_client" />
+        <module name="zubank_gateway" />
+        <module name="account.query" />
+        <module name="transaction" />
+        <module name="crm" />
+        <module name="zubank_discovery_server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zuban_kclient" target="17" />
+      <module name="zubank.cqrs" target="17" />
+      <module name="zubankclient" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account.cmd" options="-parameters" />
+      <module name="account.common" options="-parameters" />
+      <module name="account.query" options="-parameters" />
+      <module name="cqrs.core" options="-parameters" />
+      <module name="crm" options="-parameters" />
+      <module name="transaction" options="-parameters" />
+      <module name="zuban_kclient" options="-parameters" />
+      <module name="zubank.cqrs" options="-parameters" />
+      <module name="zubank_client" options="-parameters" />
+      <module name="zubank_config_server" options="-parameters" />
+      <module name="zubank_discovery_server" options="-parameters" />
+      <module name="zubank_gateway" options="-parameters" />
+      <module name="zubankclient" options="-parameters" />
+    </option>
+  </component>
+</project>
