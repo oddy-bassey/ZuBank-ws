@@ -28,7 +28,7 @@ public class AppController {
         return "accounts";
     }
 
-    @RequestMapping(value = "/accountDetail", method = RequestMethod.GET)
+    @RequestMapping(value = "/accounts/detail", method = RequestMethod.GET)
     public String getAccountDetails(Model m) {
         return "accountDetail";
     }

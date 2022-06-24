@@ -11,7 +11,7 @@
 	<groupId>com.revoltcode</groupId>
 	<artifactId>zubank_client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>zubank_client</name>
 	<description>A simple MVC/thymeleaf project for my ZuBank application</description>
 	<properties>

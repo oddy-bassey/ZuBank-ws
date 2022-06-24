@@ -132,7 +132,7 @@ const loadTableData = (data) => {
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li class="view-details">
-                <a class="dropdown-item" href="/accountDetail?account=${accId}">
+                <a class="dropdown-item" href="/accounts/detail?accountId=${accId}">
                   View details
                 </a>
               </li>

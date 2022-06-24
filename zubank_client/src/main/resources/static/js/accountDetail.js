@@ -30,7 +30,7 @@ const getAccount = (accountId) => {
 
 /* load page data */
 const init = async () => {
-  const { account: accountId } = extractParams();
+  const { accountId } = extractParams();
   console.log(accountId);
   const {accountInfo, accountTransactions, customerInfo} = await getAccount(accountId);
   console.log(accountInfo, accountTransactions, customerInfo);

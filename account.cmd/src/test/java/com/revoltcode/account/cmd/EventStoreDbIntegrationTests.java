@@ -12,6 +12,7 @@ import de.flapdoodle.embed.mongo.config.MongodConfig;
 import de.flapdoodle.embed.mongo.config.Net;
 import de.flapdoodle.embed.mongo.distribution.Version;
 import de.flapdoodle.embed.process.runtime.Network;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,7 +33,7 @@ class EventStoreDbIntegrationTests {
 	private MongoTemplate mongoTemplate;
 
 	/* setup MongoDB configuration manually to particularly test specific versions
-	 * else spring automatically configures the DB
+	 * or allow spring to automatically configure the DB
 	 */
 	@Autowired
 	private MongodExecutable mongodExecutable;
@@ -61,6 +62,7 @@ class EventStoreDbIntegrationTests {
 
 
 
+	@DisplayName("Verify that database is connected and data stored is retrievable")
 	@Test
 	public void test() {
 		String collectionName = "eventStore";

@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +30,7 @@ class CrmServiceTests {
 
 	@BeforeEach
 	public void loadData(){
-		customerService.save(Customer.builder()
+		customerRepository.save(Customer.builder()
 				.firstName("Richard")
 				.lastName("David")
 				.email("richarddavid@gmail.com")
@@ -42,10 +43,10 @@ class CrmServiceTests {
 
 	@AfterEach
 	public void deleteData(){
-		Customer customer = customerService.findByEmail("richarddavid@gmail.com").get();
-		customerService.deleteCustomer(customer);
+		customerRepository.deleteAll();
 	}
 
+	@DisplayName("Test that service layer can successfully store customer.")
 	@Test
 	public void saveCustomer(){
 		Customer customer = customerService.save(Customer.builder()
@@ -61,6 +62,7 @@ class CrmServiceTests {
 		assertNotNull(customer.getId());
 	}
 
+	@DisplayName("Test that service layer will fail trying to store incomplete customer data.")
 	@Test
 	public void saveCustomerWithMissingRequiredValues(){
 		Customer customer = Customer.builder()
@@ -73,17 +75,20 @@ class CrmServiceTests {
 		assertThrows(TransactionSystemException.class, () -> customerService.save(customer));
 	}
 
+	@DisplayName("Test that service layer to successfully find customer by email.")
 	@Test
 	public void findCustomerByEmail(){
 		Customer customer = customerService.findByEmail("richarddavid@gmail.com").get();
 		assertEquals("richarddavid@gmail.com", customer.getEmail());
 	}
 
+	@DisplayName("Test that service layer can get all stored customers.")
 	@Test
 	public void findAllCustomer(){
 		assertEquals(1,customerService.findAll().size());
 	}
 
+	@DisplayName("Test that service layer can successfully update a customer.")
 	@Test
 	public void updateCustomer(){
 		Customer customer = customerService.findByEmail("richarddavid@gmail.com").get();
@@ -92,6 +97,7 @@ class CrmServiceTests {
 		assertEquals( "Moose", updatedCustomer.getLastName());
 	}
 
+	@DisplayName("Test that service layer can successfully delete a customer.")
 	@Test
 	public void deleteCustomer(){
 		Customer customer = customerService.save(Customer.builder()
@@ -106,5 +112,11 @@ class CrmServiceTests {
 
 		customerService.deleteCustomer(customer);
 		assertTrue(customerService.findByEmail("ninadaniel@gmail.com").isEmpty());
+	}
+
+	@DisplayName("Test that service layer can return the correct count of stored customers.")
+	@Test
+	public void getCustomerCount(){
+		assertEquals(1, customerService.getCountOfCustomers());
 	}
 }
