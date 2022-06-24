@@ -8,7 +8,7 @@ Contained Modules
 * CRM (customer relationship management service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/crm.svg?style=svg)](https://circleci.com/gh/oddy-bassey/crm) https://github.com/oddy-bassey/crm
 * Account
   * cmd (accounts command service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/account.cmd.svg?style=svg)](https://circleci.com/gh/oddy-bassey/account.cmd) https://github.com/oddy-bassey/account.cmd
-  * query (accounts query service) https://github.com/oddy-bassey/account.query
+  * query (accounts query service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/account.query.svg?style=svg)](https://circleci.com/gh/oddy-bassey/account.query) https://github.com/oddy-bassey/account.query
   * common (accounts core library) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/account.common.svg?style=svg)](https://circleci.com/gh/oddy-bassey/account.common) https://github.com/oddy-bassey/account.common
 * CQRS.core (CQRS core library) https://github.com/oddy-bassey/cqrs.core
 * Transaction (accounts transaction service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/transaction.svg?style=svg)](https://circleci.com/gh/oddy-bassey/transaction) https://github.com/oddy-bassey/transaction
