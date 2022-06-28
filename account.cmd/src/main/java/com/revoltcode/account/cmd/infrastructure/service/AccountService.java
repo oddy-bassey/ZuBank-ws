@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "feignAccountService", url = "http://localhost:8080/api/v1/accountLookup")
+@FeignClient(name = "feignAccountService", url = "http://${feign.account.hostname}:8080/api/v1/accountLookup")
 public interface AccountService {
 
     @GetMapping("/byCustomerAndAccountType/{accountId}/{accountType}")

@@ -4,7 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
+      host: mongodb
       port: 27017
       database: zubankAccount
   mongodb:
@@ -12,7 +12,7 @@ spring:
       version: 4.0.2
   kafka:
     producer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: kafka:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   application:
@@ -24,6 +24,6 @@ eureka:
 
 feign:
   customer:
-    hostname: localhost
+    hostname: cloud-gateway
   account:
-    hostname: localhost
+    hostname: cloud-gateway

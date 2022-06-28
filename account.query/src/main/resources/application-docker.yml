@@ -16,7 +16,7 @@ spring:
     listener:
       ack-mode: MANUAL_IMMEDIATE
     consumer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: kafka:9092
       group-id: bankaccConsumer
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -35,6 +35,6 @@ eureka:
 
 feign:
   customer:
-    hostname: localhost
+    hostname: gateway
   transaction:
-    hostname: localhost
+    hostname: gateway

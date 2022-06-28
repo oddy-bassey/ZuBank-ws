@@ -8,7 +8,7 @@ Contained Modules
 * CRM (customer relationship management service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/crm.svg?style=svg)](https://circleci.com/gh/oddy-bassey/crm) https://github.com/oddy-bassey/crm
 * Account
   * cmd (accounts command service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/account.cmd.svg?style=svg)](https://circleci.com/gh/oddy-bassey/account.cmd) https://github.com/oddy-bassey/account.cmd
-  * query (accounts query service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/account.query.svg?style=svg)](https://circleci.com/gh/oddy-bassey/account.query) https://github.com/oddy-bassey/account.query
+  * query (accounts query service) https://github.com/oddy-bassey/account.query
   * common (accounts core library) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/account.common.svg?style=svg)](https://circleci.com/gh/oddy-bassey/account.common) https://github.com/oddy-bassey/account.common
 * CQRS.core (CQRS core library) https://github.com/oddy-bassey/cqrs.core
 * Transaction (accounts transaction service) [![oddy-bassey](https://circleci.com/gh/oddy-bassey/transaction.svg?style=svg)](https://circleci.com/gh/oddy-bassey/transaction) https://github.com/oddy-bassey/transaction
@@ -66,4 +66,30 @@ in the read database. Please note that the query api has data sovereignty over t
 ![alt text](https://github.com/oddy-bassey/ZuBank-ws/blob/main/resources/img/acc_arch.PNG?raw=true)
 
 # How to run the application ?
-...
+**To be able to run the application, you would need to carry out the following steps**
+1) Pull/Download all docker images
+  * pull kafka image <br>
+    ``docker pull bitnami/zookeeper`` <br>
+    ``docker pull bitnami/kafka``
+  * pull mongodb image <br>
+    ``docker pull mongo``
+  * pull zubank-discovery-server image <br>
+    ``docker pull oddybassey/zubank-discovery-server:latest``
+  * pull zubank-gateway image <br>
+    ``docker pull oddybassey/zubank-gateway:latest``
+  * pull zubank client image <br>
+    ``docker pull oddybassey/zubank:latest``
+  * pull zubank-crm image <br>
+    ``docker pull oddybassey/zubank-crm:latest``
+  * pull zubank-account-command image <br>
+    ``docker pull oddybassey/zubank-account-command:latest``
+  * pull zubank-account-query image <br>
+    ``docker pull oddybassey/zubank-account-query:latest``
+  * pull zubank-transaction image <br>
+    ``docker pull oddybassey/zubank-transaction:latest``
+2) create a docker network <br>
+   ``docker network create --attachable -d bridge zubankNet``
+3) [Run this docker-compose file  to start the services](https://github.com/oddy-bassey/ZuBank-ws/tree/main/resources/docker/)
+    ``docker-compose up``
+4) [Click to access the client app dashboard](http://localhost:1500/)
+   ![alt text](https://github.com/oddy-bassey/zubank_client/blob/main/src/main/resources/screen_shots/dashboard.PNG?raw=true)

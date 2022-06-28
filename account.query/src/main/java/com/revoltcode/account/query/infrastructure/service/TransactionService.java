@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name = "feignTransactionService", url = "http://localhost:8080/api/v1/transactions")
+@FeignClient(name = "feignTransactionService", url = "http://${feign.transaction.hostname}:8080/api/v1/transactions")
 public interface TransactionService {
 
     @PostMapping("/")

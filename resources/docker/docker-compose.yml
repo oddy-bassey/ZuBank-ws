@@ -1,0 +1,135 @@
+version: '3.7'
+services:
+  # Mongodb config
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    restart: always
+    volumes:
+      - "mongodb_data:/data/db"
+  
+  
+  # Apache Zookeepr config
+  zookeeper:
+    image: bitnami/zookeeper
+    container_name: zookeeper
+    restart: always
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  # Apache Kafka config
+  kafka:
+    image: bitnami/kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    restart: always
+    volumes:
+      - "kafka_data:/bitnami"
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_ADVERTISED_HOST_NAME:kafka
+    depends_on:
+      - zookeeper
+
+  # Discovery server config
+  zubank-discovery-server:
+    image: oddybassey/zubank-discovery-server
+    container_name: discovery-server
+    ports:
+    - "8761:8761"
+
+  # Gateway
+  zubank-gateway:
+    image: oddybassey/zubank-gateway
+    container_name: cloud-gateway
+    environment:
+      - eureka.client.service-url.defaultZone=http://discovery-server:8761/eureka
+    depends_on:
+      - discovery-server
+    ports:
+    - "8080:8080"
+
+  # CRM
+  zubank-crm:
+    image: oddybassey/zubank-crm
+    container_name: crm-service
+    environment:
+      - eureka.client.service-url.defaultZone=http://discovery-server:8761/eureka
+    depends_on:
+      - discovery-server
+    ports:
+      - "8083:8083"
+
+  # Account command
+  zubank-account-cmd:
+    image: oddybassey/zubank-account-command
+    container_name: account-cmd-service
+    environment:
+      - eureka.client.service-url.defaultZone=http://discovery-server:8761/eureka
+      # - spring.kafka.boostrap-servers=kafka:9092
+      - spring.kafka.producer.boostrap-servers=kafka:9092
+      - spring.data.mongodb.host=mongodb
+      - feign.customer.hostname=cloud-gateway
+      - feign.account.hostname=cloud-gateway
+    # volumes:
+    #   - "zubank_data:/command"
+    depends_on:
+      - discovery-server
+      - mongodb
+    ports:
+      - "8085:8085"
+
+  # Account query
+  zubank-account-query:
+    image: oddybassey/zubank-account-query
+    container_name: account-query-service
+    environment:
+      - eureka.client.service-url.defaultZone=http://discovery-server:8761/eureka
+      # - spring.kafka.boostrap-servers=kafka:9092
+      - spring.kafka.consumer.boostrap-servers=kafka:9092
+      - feign.customer.hostname=cloud-gateway
+      - feign.transaction.hostname=cloud-gateway
+    depends_on:
+      - discovery-server
+    ports:
+      - "8086:8086"
+
+  # Account transaction
+  zubank-transaction:
+    image: oddybassey/zubank-transaction
+    container_name: transaction-service
+    environment:
+      - eureka.client.service-url.defaultZone=http://discovery-server:8761/eureka
+    depends_on:
+      - discovery-server
+    ports:
+      - "8087:8087"
+
+  # Zubank Client
+  zubank:
+    image: oddybassey/zubank
+    container_name: zubank
+    ports:
+      - "1500:1500"
+
+networks:
+  default:
+    name: zubankNet
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+  mongodb_data:
+    driver: local
