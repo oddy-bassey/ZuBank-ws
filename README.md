@@ -67,29 +67,10 @@ in the read database. Please note that the query api has data sovereignty over t
 
 # How to run the application ?
 **To be able to run the application, you would need to carry out the following steps**
-1) Pull/Download all docker images
-  * pull kafka image <br>
-    ``docker pull bitnami/zookeeper`` <br>
-    ``docker pull bitnami/kafka``
-  * pull mongodb image <br>
-    ``docker pull mongo``
-  * pull zubank-discovery-server image <br>
-    ``docker pull oddybassey/zubank-discovery-server:latest``
-  * pull zubank-gateway image <br>
-    ``docker pull oddybassey/zubank-gateway:latest``
-  * pull zubank client image <br>
-    ``docker pull oddybassey/zubank:latest``
-  * pull zubank-crm image <br>
-    ``docker pull oddybassey/zubank-crm:latest``
-  * pull zubank-account-command image <br>
-    ``docker pull oddybassey/zubank-account-command:latest``
-  * pull zubank-account-query image <br>
-    ``docker pull oddybassey/zubank-account-query:latest``
-  * pull zubank-transaction image <br>
-    ``docker pull oddybassey/zubank-transaction:latest``
-2) create a docker network <br>
+
+1) create a docker network <br>
    ``docker network create --attachable -d bridge zubankNet``
-3) [Run this docker-compose file  to start the services](https://github.com/oddy-bassey/ZuBank-ws/tree/main/resources/docker/)
+2) [Run this docker-compose file  to start the services](https://github.com/oddy-bassey/ZuBank-ws/tree/main/resources/docker/) <br>
     ``docker-compose up -d``
-4) [Click to access the client app dashboard](http://localhost:1500/)
+3) [Click to access the client app dashboard](http://localhost:1500/)
    ![alt text](https://github.com/oddy-bassey/zubank_client/blob/main/src/main/resources/screen_shots/dashboard.PNG?raw=true)
