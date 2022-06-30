@@ -90,6 +90,6 @@ in the read database. Please note that the query api has data sovereignty over t
 2) create a docker network <br>
    ``docker network create --attachable -d bridge zubankNet``
 3) [Run this docker-compose file  to start the services](https://github.com/oddy-bassey/ZuBank-ws/tree/main/resources/docker/)
-    ``docker-compose up``
+    ``docker-compose up -d``
 4) [Click to access the client app dashboard](http://localhost:1500/)
    ![alt text](https://github.com/oddy-bassey/zubank_client/blob/main/src/main/resources/screen_shots/dashboard.PNG?raw=true)
